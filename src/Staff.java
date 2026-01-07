@@ -5,4 +5,7 @@ public abstract class Staff extends Person{
         super(name, age);
         this.role = role;
     }
+    public void createAppointment(Patient patient, Appointment appointment) {
+        patient.addAppointment(appointment);
+    }
 }
