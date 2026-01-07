@@ -16,8 +16,17 @@ public class Doctor extends Staff{
                 && b.getStart().isBefore(a.getEnd());
     }
     @Override
-    void performDuties() {
+    void performDuties(){
         System.out.println("Performing doctor duties");
+    }
+    void performDuties(Patient patient,String... treatments) {
+        ArrayList<String> treatmentsList = new ArrayList<>();
+
+        for(String treatment: treatments){
+            treatmentsList.add(treatment);
+        }
+        patient.addPrescription(new Prescription(treatmentsList));
+
     }
     void prescribeMedicine(String medicine){
         System.out.println("Prescribing medicine "+medicine);
