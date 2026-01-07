@@ -21,7 +21,7 @@ class ClinicTest {
         for (Staff staff1 : staff){
             staff1.performDuties();
         }
-        patient.recieveTreatment();
+        patient.receiveTreatment();
         doctor.prescribeMedicine("Xanax");
         nurse.checkVitals(patient);
     }

@@ -1,4 +1,20 @@
+import java.util.ArrayList;
+
 public class Doctor extends Staff{
+    ArrayList<Appointment> appointments = new ArrayList<>();
+    public boolean addAppointment(Appointment appointment) {
+        for(Appointment a : this.appointments){
+            if(overlap(appointment,a)){
+                return  false;
+            }
+        }
+        this.appointments.add(appointment);
+        return true;
+    }
+    private boolean overlap(Appointment a, Appointment b) {
+        return a.getStart().isBefore(b.getEnd())
+                && b.getStart().isBefore(a.getEnd());
+    }
     @Override
     void performDuties() {
         System.out.println("Performing doctor duties");
