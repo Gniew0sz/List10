@@ -11,7 +11,7 @@ public class Appointment {
     public void setStart(LocalDateTime start) {
         this.start = start;
     }
-    public void setEnd(LocalDateTime end) {
+    public void setEnd(LocalDateTime    end) {
         this.end = end;
     }
     public LocalDateTime getStart() {

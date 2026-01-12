@@ -1,6 +1,6 @@
 public class Nurse extends Staff{
     @Override
-    void performDuties() {
+    public void performDuties() {
         System.out.println("Performing nurse duties");
     }
     void checkVitals(Patient patient){

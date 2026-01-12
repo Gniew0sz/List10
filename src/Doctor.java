@@ -16,7 +16,7 @@ public class Doctor extends Staff{
                 && b.getStart().isBefore(a.getEnd());
     }
     @Override
-    void performDuties(){
+    public void performDuties(){
         System.out.println("Performing doctor duties");
     }
     void performDuties(Patient patient,String... treatments) {
@@ -25,7 +25,7 @@ public class Doctor extends Staff{
         for(String treatment: treatments){
             treatmentsList.add(treatment);
         }
-        patient.addPrescription(new Prescription(treatmentsList));
+        patient.addPrescription(new Prescription(treatmentsList,this));
 
     }
     void prescribeMedicine(String medicine){

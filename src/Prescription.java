@@ -1,10 +1,11 @@
 import java.util.ArrayList;
 
 public class Prescription {
-    ArrayList<String> treatments = new ArrayList<>();
-
-    public Prescription( ArrayList<String> treatments) {
+    ArrayList<String> treatments;
+    Doctor prescribingDoctor;
+    public Prescription( ArrayList<String> treatments,Doctor doctor) {
         this.treatments = treatments;
+        this.prescribingDoctor = doctor;
     }
     public void getTreatments() {
         System.out.println("Treatments: ");

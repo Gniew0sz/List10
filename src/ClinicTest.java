@@ -1,28 +1,39 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 class ClinicTest {
     void main() {
-        Patient patient = new Patient("John Pork",33);
-        Doctor doctor = new Doctor("John Beef",43,"Cardiologist");
-        Receptionist receptionist = new Receptionist("John Chicken", 25,"Receptionist");
-        Nurse nurse = new Nurse("John Burrito",25,"Nurse");
-        ArrayList<Person> people = new ArrayList<>();
-        ArrayList<Staff> staff = new ArrayList<>();
-        people.add(patient);
-        people.add(doctor);
-        people.add(receptionist);
-        people.add(nurse);
-        for(Person person : people){
-            person.introduce();
+        Scanner scanner = new Scanner(System.in);
+        HospitalManager manager = new HospitalManager();
+        while (true) {
+            System.out.print("> ");
+            String cmd = scanner.next();
+
+            switch (cmd) {
+                case "app": // doctor, patient, start, end
+                    manager.addAppointment(scanner.next(), scanner.next(),
+                            scanner.next() + " " + scanner.next(),
+                            scanner.next() + " " + scanner.next());
+                    break;
+                case "view-pat":// patient
+                    manager.displayPatientAppointments(scanner.next());
+                    break;
+                case "view-doc": //doctor
+                    manager.displayDoctorCalendar(scanner.next());
+                    break;
+                case "prescribe": // patient, med1,med2...,doctor
+                    manager.addPrescription(scanner.next(), Arrays.asList(scanner.next().split(",")), scanner.next());
+                    break;
+                case "search-med": //medicine
+                    manager.displayPatientsByMedicine(scanner.next());
+                    break;
+                case "exit"://exit
+                    return;
+                default:
+                    System.out.println("Invalid command");
+                break;
+            }
         }
-        staff.add(nurse);
-        staff.add(doctor);
-        staff.add(receptionist);
-        for (Staff staff1 : staff){
-            staff1.performDuties();
-        }
-        patient.receiveTreatment();
-        doctor.prescribeMedicine("Xanax");
-        nurse.checkVitals(patient);
     }
 }

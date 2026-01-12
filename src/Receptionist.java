@@ -1,6 +1,6 @@
 public class Receptionist extends Staff{
     @Override
-    void performDuties() {
+    public void performDuties() {
         System.out.println("Performing receptionist duties");
     }
     public Receptionist(String name, int age, String role) {
